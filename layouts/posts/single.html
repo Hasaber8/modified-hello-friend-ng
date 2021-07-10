@@ -121,7 +121,11 @@
     {{- end }}
 
     {{ partial "pagination-single.html" . }}
-
+ 
+    {{- if isset .Site.Params "utterancesrepo" -}}
+		{{ partial "utterances.html" . }}
+		{{- end -}}
+    
     {{ if .Site.DisqusShortname }}
       {{ if not (eq .Params.Comments "false") }}
         <div id="comments">
